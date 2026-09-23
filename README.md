@@ -1,8 +1,8 @@
-# Automation_python_coding
+# Automation Python Coding
 
 ## NAME: HAMAR NIDHI S
 ## REG NO: 212223060076
-
+## DATE: 23.09.2026
 
 **Write a Python program which accepts a sequence of comma separated 4 digit
 binary numbers as its input and then check whether they are divisible by 5 or not.
