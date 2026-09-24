@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Portal - Practice Site</title>
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Top Navigation Bar -->
+        <header class="navbar">
+            <div class="logo-area">
+                <span class="logo-icon">🎓</span>
+                <h1>EduPortal</h1>
+            </div>
+            <div class="nav-controls">
+                <button id="themeToggleBtn" class="btn btn-outline" type="button">
+                    <span id="themeIcon">🌙</span> <span id="themeText">Dark Mode</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Notification Banner -->
+        <div id="alertBanner" class="alert-banner hidden">
+            <span id="alertMessage"></span>
+            <button type="button" class="alert-close" id="closeAlertBtn">&times;</button>
+        </div>
+
+        <main class="main-content">
+            <!-- Left Column: Student Registration Form -->
+            <section class="card form-card">
+                <div class="card-header">
+                    <h2>Student Registration</h2>
+                    <p class="subtitle-text">Fill in the details below to register a new student.</p>
+                </div>
+                
+                <form id="registrationForm" novalidate>
+                    <div class="form-group">
+                        <label for="fullName">Full Name <span class="required">*</span></label>
+                        <input type="text" id="fullName" placeholder="e.g. John Doe">
+                        <small class="error-msg" id="fullNameError"></small>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address <span class="required">*</span></label>
+                            <input type="email" id="email" placeholder="e.g. student@university.edu">
+                            <small class="error-msg" id="emailError"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number <span class="required">*</span></label>
+                            <input type="tel" id="phone" placeholder="10-digit number">
+                            <small class="error-msg" id="phoneError"></small>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="age">Age (18 - 25) <span class="required">*</span></label>
+                            <input type="number" id="age" placeholder="Age">
+                            <small class="error-msg" id="ageError"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="department">Department <span class="required">*</span></label>
+                            <select id="department">
+                                <option value="">-- Select Department --</option>
+                                <option value="Computer Science">Computer Science</option>
+                                <option value="Electrical Engineering">Electrical Engineering</option>
+                                <option value="Mechanical Engineering">Mechanical Engineering</option>
+                                <option value="Civil Engineering">Civil Engineering</option>
+                                <option value="Business Administration">Business Administration</option>
+                            </select>
+                            <small class="error-msg" id="departmentError"></small>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="password">Password <span class="required">*</span></label>
+                            <input type="password" id="password" placeholder="Min 8 characters">
+                            <small class="error-msg" id="passwordError"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password <span class="required">*</span></label>
+                            <input type="password" id="confirmPassword" placeholder="Re-enter password">
+                            <small class="error-msg" id="confirmPasswordError"></small>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" id="registerBtn" class="btn btn-primary">Register Student</button>
+                        <button type="button" id="resetBtn" class="btn btn-secondary">Reset Form</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Right Column: Student Search & Directory -->
+            <section class="card directory-card">
+                <div class="card-header">
+                    <h2>Registered Students Search</h2>
+                    <p class="subtitle-text">Search for existing students by name.</p>
+                </div>
+
+                <div class="search-box-container">
+                    <input type="text" id="searchInput" placeholder="Search by student name...">
+                    <button id="searchBtn" class="btn btn-primary" type="button">Search</button>
+                </div>
+
+                <div class="student-list-container">
+                    <table class="student-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Dept</th>
+                                <th>Age</th>
+                            </tr>
+                        </thead>
+                        <tbody id="studentTableBody">
+                            <!-- Dynamically populated -->
+                        </tbody>
+                    </table>
+                    <div id="noResultsMsg" class="no-results hidden">No matching students found.</div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
